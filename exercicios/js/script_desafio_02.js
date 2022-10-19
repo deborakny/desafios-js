@@ -20,8 +20,8 @@ na mensagem: "você ganhou"
 let d1,d2,sorteio1,sorteio2,mensagem,soma,vAcumulado=0;
 
 function sorteio(){
-    sorteio1=parseInt(Math.random()*6)+1;
-    sorteio2=parseInt(Math.random()*6)+1;
+    sorteio1=Math.floor(Math.random()*6)+1;
+    sorteio2=Math.floor(Math.random()*6)+1;
     d1=sorteio1;
     d2=sorteio2;
     soma = d1 + d2;
@@ -37,7 +37,3 @@ for(var i=0;i<6;i++){
 }
 vAcumulado>=4 ? mensagem="\nVocê ganhou!" : mensagem="\nNão foi dessa vez :(";
 console.log(mensagem);
-
-
-
-
