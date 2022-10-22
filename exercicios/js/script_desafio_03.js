@@ -26,7 +26,7 @@ Dica: Para testar o desafio no console, não recarregue a página! Apenas
 pressione enter após escrever a chamada da função
 */
 
-let numDaSorte, mensagem, acumula=0;
+let numDaSorte, mensagem, acumula=1;
 
 function sorteiaNumero(){
     numDaSorte=parseInt(Math.random()*100)+1;
@@ -36,14 +36,23 @@ function sorteiaNumero(){
 console.log(sorteiaNumero());
 
 function palpite(n){
-    if(n<numDaSorte){
-        mensagem="Tente um número maior"
+    if(acumula<6){
+        if(n<numDaSorte){
+            mensagem="Tente um número maior"
+        }
+        else if(n>numDaSorte){
+            mensagem="Tente um número menor"
+        }
+        else{   //if(n==sorteiaNumero()){
+            mensagem="Você acertou" 
+        }         
     }
-    else if(n>numDaSorte){
-        mensagem="Tente um número menor"
-    }
-    else{   //if(n==sorteiaNumero()){
+    else if(n==numDaSorte && acumula===6){
         mensagem="Você acertou"
     }
-    return mensagem;
+    else{
+        mensagem = "Não foi dessa vez"
+    }   
+    acumula++;     
+    return mensagem;    
 }
